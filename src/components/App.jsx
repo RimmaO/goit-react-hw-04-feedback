@@ -10,6 +10,8 @@ export default function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const options = Object.keys({ good, neutral, bad });
+
   const totalFeedback = () => {
     return good + neutral + bad;
   };
@@ -38,10 +40,7 @@ export default function App() {
   return (
     <>
       <Section title="Please leave feedback">
-        <FeedbackOptions
-          options={{ good, neutral, bad }}
-          onLeaveFeedback={onLeaveFeedback}
-        />
+        <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
       </Section>
       <Section title="Statistics">
         {totalFeedback() > 0 ? (
